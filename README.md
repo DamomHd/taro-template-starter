@@ -11,3 +11,9 @@ npm install
 ```
 npm run prepare
 ```
+
+安装提交前校验
+```
+npx husky add .husky/pre-commit "npm run lint"
+```
+

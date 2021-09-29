@@ -1,0 +1,71 @@
+
+@import './var.less';
+.box() {
+  box-sizing: border-box;
+}
+//  背景色
+.bg(@bg: '#ffffff') {
+  background-color: @bg;
+}
+//  边框
+.b-r(@radius) {
+  border-radius: @radius;
+}
+
+//  占满容器
+.full(@x: 100%, @y: 100%){
+  width: @x;
+  height: @y;
+}
+
+.flex(@d: 'row', @j: 'center', @align: 'center') {
+  display: flex;
+  align-items: @align;
+  justify-content: @j;
+  flex-direction: @d;
+}
+
+//  超出省略
+.text-overflow(@line, @overflowStyle: 'ellipsis') when (@line = 1) {
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: @overflowStyle;
+}
+.text-overflow(@line) when (@line > 1) {
+  overflow:hidden;
+  text-overflow:$overflowStyle;
+  display: -webkit-box;
+  -webkit-line-clamp:@line;
+  /*! autoprefixer: off */
+  -webkit-box-orient:vertical;
+  /* autoprefixer: on */
+}
+
+//  组件样式重置
+.unset(){
+  background: unset;
+  border: unset;
+  display: block;
+  padding: unset;
+  margin: unset;
+  box-sizing: unset;
+  overflow: unset;
+  color: unset;
+  border-radius: unset;
+  font-size: unset;
+  text-align: unset;
+  text-decoration: unset;
+  line-height: unset;
+  -webkit-tap-highlight-color: unset;
+  &:after {
+    display: none;
+  }
+  &:before {
+    display: none;
+  }
+}
+
+//  图片展示方式
+.img-fit(@style: 'contain'){
+  object-fit: @style;
+}
